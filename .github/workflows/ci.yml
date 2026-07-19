@@ -1,0 +1,44 @@
+# CPU-only CI: runs run_all_tests('ci') -- the full regression suite minus
+# the needs-GPU rows (no CUDA device on hosted runners) and minus
+# validate_dodecahedron20 (its independent sparse-Lanczos reference,
+# Sz=0 dim 184756, is too slow for hosted runners). This still covers the
+# whole group-theory/provider layer and every ED-vs-independent-reference
+# correctness check (see docs/VALIDATION.md).
+#
+# The GPU kernel gates (test_real_kernel, test_stream*, ...) need a
+# self-hosted runner with an NVIDIA GPU; until one exists they are covered
+# by the local full suite (run_all_tests, 25/25 required before release).
+#
+# MATLAB on GitHub-hosted runners: for PUBLIC repositories the
+# matlab-actions v2 actions license MATLAB + toolboxes automatically
+# (transformation products excepted); private repos need a batch
+# licensing token. See github.com/matlab-actions/setup-matlab.
+
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  cpu-tests:
+    name: MATLAB CPU test subset
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up MATLAB
+        uses: matlab-actions/setup-matlab@v2
+        with:
+          release: R2025b
+          products: Parallel_Computing_Toolbox
+
+      - name: Build the mmap MEX + run the CI test subset
+        uses: matlab-actions/run-command@v2
+        with:
+          # mmap_file.cpp is the only MEX the CPU subset needs (test_mmap_file);
+          # no CUDA toolkit / kernel build on this runner.
+          command: mex mmap_file.cpp; run_all_tests('ci')

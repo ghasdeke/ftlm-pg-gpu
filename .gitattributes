@@ -1,0 +1,21 @@
+# Line-ending policy. CRITICAL part: shell/SLURM scripts MUST stay LF --
+# with core.autocrlf=true on Windows, `git archive` (the deployment tarball)
+# otherwise exports them with CRLF, which breaks `source` and sbatch on the
+# Linux node ("Batch script contains DOS line breaks"). Caught 2026-07-02.
+*.sh     text eol=lf
+*.slurm  text eol=lf
+
+# Everything else: normalized in the repo (LF blobs), platform-native in
+# Windows working trees. MATLAB / nvcc / compilers accept either ending.
+*.m      text
+*.cu     text
+*.cpp    text
+*.c      text
+*.h      text
+*.md     text
+
+# Binary artefacts (never normalize).
+*.mat    binary
+*.png    binary
+*.mexw64 binary
+*.mexa64 binary

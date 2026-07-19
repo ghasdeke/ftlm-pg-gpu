@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "Symmetry-adapted GPU-FTLM for Heisenberg spin systems"
+type: software
+authors:
+  - family-names: "Ghassemi Tabrizi"
+    given-names: "Shadan"
+    affiliation: "Technische Universität Dresden and Helmholtz-Zentrum Dresden-Rossendorf (HZDR)"
+license: Apache-2.0
+repository-code: "https://github.com/ghasdeke/ftlm-pg-gpu"
+version: 1.0.0
+date-released: "2026-07-12"
+abstract: >-
+  Finite-temperature Lanczos method (FTLM) and exact diagonalization for the
+  nearest-neighbour Heisenberg model, block-decomposed per total-S^z sector and
+  per irreducible representation of a finite space/point group (icosahedral and
+  octahedral polyhedra, square/kagome/triangular lattices, and arbitrary
+  user-supplied permutation groups), accelerated with a mixed FP32-GPU /
+  FP64-CPU pipeline. One CUDA SpMV kernel serves all systems; new lattices
+  require no kernel change.
+keywords:
+  - Heisenberg model
+  - finite-temperature Lanczos method
+  - FTLM
+  - exact diagonalization
+  - point-group symmetry
+  - space-group symmetry
+  - spin clusters
+  - frustrated magnetism
+  - CUDA
+  - MATLAB

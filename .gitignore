@@ -1,0 +1,60 @@
+# ===== Compiled artifacts (rebuild via build_all.m) =====
+*.mexw64
+*.mexa64
+*.mexmaci64
+*.mexmac
+*.o
+*.obj
+*.lib
+*.exp
+*.pdb
+*.ilk
+
+# ===== Run outputs / checkpoints / logs (reproducible; not source) =====
+*.log
+*.mat
+
+
+# ===== Legacy published release (its own nested git repo) + manuscript =====
+# Left untouched on disk; excluded from this package. See README for the link.
+ohne_pg/
+
+# ===== Claude / local tooling config =====
+.claude/
+
+# ===== Reference literature (copyrighted PDFs) -- on disk, not in the package =====
+Literatur_Sz_PG/
+*.pdf
+
+# ===== Python bytecode cache =====
+__pycache__/
+*.pyc
+
+# ===== Plot / profiling output (reproducible) =====
+*.png
+ncu_*.csv
+*.err
+
+# ===== MATLAB / editor / OS cruft =====
+*.asv
+*.m~
+*.autosave
+slprj/
+.DS_Store
+Thumbs.db
+
+# ===== Heavy-run monitor + out-of-core scratch =====
+*_monitor*.csv
+*.entries.bin
+entries_*.bin
+ondisk_*/
+
+# Nsight profiling artifacts (scratch)
+*.nsys-rep
+*.sqlite
+
+# ===== FTLM run output directories (results/checkpoints/caches; reproducible) =====
+runs_*/
+
+# ===== Manuscript drafts (paper_*.docx + manifests) -- not part of the package =====
+paper_*
