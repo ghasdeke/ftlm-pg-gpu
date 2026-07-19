@@ -8,6 +8,7 @@ authors:
     affiliation: "Technische Universität Dresden and Helmholtz-Zentrum Dresden-Rossendorf (HZDR)"
 license: Apache-2.0
 repository-code: "https://github.com/ghasdeke/ftlm-pg-gpu"
+doi: 10.5281/zenodo.21445872
 version: 1.0.0
 date-released: "2026-07-12"
 abstract: >-

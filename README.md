@@ -1,5 +1,7 @@
 # Symmetry-adapted GPU-FTLM for Heisenberg spin systems
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21445872.svg)](https://doi.org/10.5281/zenodo.21445872)
+
 Finite-temperature Lanczos (FTLM) and exact diagonalization (ED) for the
 nearest-neighbour Heisenberg model, reduced **per irreducible representation of a
 space/point group** and accelerated with a mixed FP32-GPU / FP64-CPU pipeline.
